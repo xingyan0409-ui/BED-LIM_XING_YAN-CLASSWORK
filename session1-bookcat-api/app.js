@@ -8,7 +8,95 @@ const copySchema = Joi.object({
   copyNo: Joi.number().integer().min(1).required()
 });
 app.use(express.json());
-
+// Session2 Practice 1
+// app.get('/publisher', async (req, res) => {
+//   let connection;
+//   try {
+//     connection = await sql.connect(dbConfig);
+//     const request = connection.request();
+//     let sqlQuery = 'SELECT * FROM Publisher';
+//     const result = await request.query(sqlQuery);
+//     res.status(200).json(result.recordset);
+//   } catch (err) {
+//     res.status(500).json({ error: 'Server error' });
+//   } finally {
+//     if (connection) await connection.close();
+//   }
+// });
+// app.get('/publisher/:id', async (req, res) => {
+//   let connection;
+//   try {
+//     connection = await sql.connect(dbConfig);
+//     const request = connection.request();
+//     let sqlQuery = 'SELECT Name FROM Publisher WHERE PublisherID = @PublisherID';
+//     request.input('PublisherID', sql.Int, req.params.id);
+//     const result = await request.query(sqlQuery);
+//     if (result.recordset.length === 0) {
+//       return res.status(404).json({ error: 'Publisher not found' });
+//     }
+//     res.status(200).json(result.recordset);
+//   } catch (err) {
+//     console.error(err);
+//     res.status(500).json({ error: 'Server error' });
+//   } finally {
+//     if (connection) await connection.close();
+//   }
+// });
+// Practice 2
+// app.post('/publisher', async(req, res) => {
+//   let connection;
+//   try {
+//     connection = await sql.connect(dbConfig);
+//     const request = connection.request();
+//     const sqlQuery = `INSERT INTO Publisher (Name) VALUES (@Name)`;
+//     request.input('Name', sql.VarChar, req.body.Name);
+//     const result = await request.query(sqlQuery);
+//     res.json(result.recordset);
+//     res.status(201).json({ message: 'Publisher created successfully' });
+//   } catch (err) {
+//     res.status(500).json({error: err.message });
+//   } finally {
+//     if (connection) await connection.close();
+//   }
+// });
+// app.put('/publisher/:id', async(req, res) => {
+//   let connection;
+//   try {
+//     connection = await sql.connect(dbConfig);
+//     const request = connection.request();
+//     const sqlQuery = `UPDATE Publisher SET Name = @Name WHERE PublisherID = @PublisherID`;
+//     request.input('Name', sql.VarChar, req.body.Name);
+//     request.input('PublisherID', sql.Int, req.params.id);
+//     const result = await request.query(sqlQuery);
+//     if (result.rowsAffected[0] === 0) {
+//       return res.status(404).json({ error: 'Publisher not found' });
+//     }
+//     res.status(200).json({ message: 'Publisher updated successfully' });
+//   } catch (err) {
+//     res.status(500).json({ error: 'Server Error' });
+//   } finally {
+//     if (connection) await connection.close();
+//   }
+// });
+// app.delete('/publisher/:id', async(req, res) => {
+//   let connection;
+//   try {
+//     connection = await sql.connect(dbConfig);
+//     const request = connection.request();
+//     const sqlQuery = `DELETE FROM Publisher WHERE PublisherID = @PublisherID`;
+//     request.input('PublisherID', sql.Int, req.params.id);
+//     const result = await request.query(sqlQuery);
+//     if (result.rowsAffected[0] === 0) {
+//       return res.status(404).json({ error: 'Publisher not found' });
+//     }
+//     res.status(204).send();
+//   } catch (err) {
+//     res.status(500).json({ error: 'Server Error' });
+//   } finally {
+//     if (connection) await connection.close();
+//   }
+// });
+console.log();
 // Lab 5
 // app.get('/authors', async (req, res) => {
 //   let connection;
